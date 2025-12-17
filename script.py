@@ -22,6 +22,7 @@ _LOGGER = getLogger(__name__)
 
 @settings
 class Settings:
+    token: str = option(default="token", help="GitHub token")
     dry_run: bool = option(default=False, help="Dry run the CLI")
 
 

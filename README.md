@@ -1,3 +1,3 @@
-# `template-script`
+# `action-uv-publish`
 
-Template for Python scripts
+Build Python package and upload distribution

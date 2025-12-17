@@ -1,5 +1,5 @@
-name: name
-description: description
+name: uv-publish
+description: Build Python package and upload distribution
 
 branding:
   icon: activity
@@ -11,23 +11,25 @@ inputs:
     default: ${{ github.token }}
 
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Check out repo
       uses: actions/checkout@v6
       with:
         fetch-depth: 0
 
-    - name: Check out 'dycw/action-name'
+    - name: Check out 'dycw/action-uv-publish'
       uses: actions/checkout@v6
       with:
-        repository: dycw/action-name
+        repository: dycw/action-uv-publish
         fetch-depth: 0
-        path: action
+        path: uv-publish
 
     - name: Install 'uv'
       uses: astral-sh/setup-uv@v7
 
     - name: Run 'script.py'
-      run: uv run action-name/script.py
+      env:
+        APP_TOKEN: ${{ inputs.token }}
+      run: uv run uv-publish/script.py
       shell: bash
