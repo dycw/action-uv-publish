@@ -30,5 +30,5 @@ runs:
       env:
         APP_TOKEN: ${{ inputs.token }}
         APP_TRUSTED_PUBLISHING: ${{ inputs.trusted-publishing }}
-      run: uv run --with=dycw-uv-publish uv-publish
+      run: uv run --with=dycw-uv-publish --reinstall uv-publish
       shell: bash
