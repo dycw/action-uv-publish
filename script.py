@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 from logging import getLogger
+from subprocess import check_call
 
 from click import command
 from typed_settings import click_options, option, settings
@@ -32,7 +33,13 @@ def main(settings: Settings, /) -> None:
     if settings.dry_run:
         _LOGGER.info("Dry run; exiting...")
         return
-    _LOGGER.info("Running...")
+    _log_run("uv", "build", "--wheel")
+    _log_run("uv", "publish", "--trusted-publishing", "always")
+
+
+def _log_run(*cmds: str) -> None:
+    _LOGGER.info("Running '%s'...", " ".join(cmds))
+    _ = check_call(cmds, text=True)
 
 
 if __name__ == "__main__":
