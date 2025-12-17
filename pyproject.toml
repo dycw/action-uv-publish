@@ -16,7 +16,7 @@
   version = "0.2.0"
 
   [project.scripts]
-    tag-commit = "tag_commit.cli:_main"
+    uv-publish = "uv_publish.cli:_main"
 
 [dependency-groups]
   dev = ["dycw-utilities[test]", "rich", "pyright"]
