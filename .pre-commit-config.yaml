@@ -28,6 +28,9 @@ repos:
   - hooks:
       - args:
           - --github--push--tag
+          - --github--push--tag--major-minor
+          - --github--push--tag--major
+          - --github--push--tag--latest
           - --pre-commit--prettier
           - --pre-commit--ruff
           - --pre-commit--taplo
