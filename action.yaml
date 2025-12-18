@@ -44,11 +44,11 @@ runs:
 
     - name: Run 'uv-publish'
       env:
-        APP_TOKEN: ${{ inputs.token }}
-        APP_USERNAME: ${{ inputs.username }}
-        APP_PASSWORD: ${{ inputs.password }}
-        APP_PUBLISH_URL: ${{ inputs.publish-url }}
-        APP_TRUSTED_PUBLISHING: ${{ inputs.trusted-publishing }}
-        APP_NATIVE_TLS: ${{ inputs.native-tls }}
+        TOKEN: ${{ inputs.token }}
+        USERNAME: ${{ inputs.username }}
+        PASSWORD: ${{ inputs.password }}
+        PUBLISH_URL: ${{ inputs.publish-url }}
+        TRUSTED_PUBLISHING: ${{ inputs.trusted-publishing }}
+        NATIVE_TLS: ${{ inputs.native-tls }}
       run: uv tool run --from dycw-uv-publish --isolated uv-publish
       shell: bash
