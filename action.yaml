@@ -1,5 +1,5 @@
 name: uv-publish
-description: Build and publish Python packages
+description: Build and publish package
 
 branding:
   icon: activity

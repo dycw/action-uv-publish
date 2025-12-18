@@ -1,3 +1,3 @@
-# `action-uv-publish`
+# `action-publish`
 
-Build and publish Python packages
+Build and publish package

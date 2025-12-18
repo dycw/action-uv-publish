@@ -1,19 +1,6 @@
 repos:
   - hooks:
       - args:
-          - --fix
-        id: ruff-check
-      - id: ruff-format
-    repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.10
-  - hooks:
-      - args:
-          - --upgrade
-        id: uv-lock
-    repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.18
-  - hooks:
-      - args:
           - --option
           - indent_tables=true
           - --option
@@ -25,31 +12,18 @@ repos:
     rev: v0.9.3
   - hooks:
       - args:
-          - --description=Build and publish Python packages
-          - --github--push--publish
-          - --github--push--publish--trusted-publishing
+          - --description=Build and publish package
           - --github--push--tag
           - --github--push--tag--latest
           - --github--push--tag--major
           - --github--push--tag--major-minor
-          - --package-name=dycw-uv-publish
           - --pre-commit--prettier
-          - --pre-commit--ruff
           - --pre-commit--taplo
-          - --pre-commit--uv
-          - --pyproject
-          - --pyright
-          - --pyright--include=src
-          - --pytest
-          - --pytest--test-paths=src/tests
-          - --python-package-name=uv_publish
-          - --python-version=3.13
           - --readme
-          - --repo-name=action-uv-publish
-          - --ruff
+          - --repo-name=action-publish
         id: nitpick
     repo: https://github.com/dycw/pre-commit-hook-nitpick
-    rev: 0.4.4
+    rev: 0.4.5
   - hooks:
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
