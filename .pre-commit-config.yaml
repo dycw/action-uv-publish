@@ -39,6 +39,7 @@ repos:
           - --pre-commit--uv
           - --pyproject
           - --pyproject--project--name=dycw-uv-publish
+          - --pyproject--tool--uv--build-backend=uv_publish
           - --pyright
           - --pyright--include=src
           - --pytest
