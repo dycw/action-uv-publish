@@ -9,8 +9,20 @@ inputs:
   token:
     description: GitHub Personal Access Token
     default: ${{ github.token }}
+  username:
+    username: The username of the upload
+    default:
+  password:
+    username: The password of the upload
+    default:
+  publish-url:
+    username: The URL of the upload endpoint
+    default:
   trusted-publishing:
     description: Configure trusted publishing
+    default: false
+  native-tls:
+    description: Whether to load TLS certificates from the platform's native certificate store
     default: false
 
 runs:
@@ -29,6 +41,10 @@ runs:
     - name: Run 'uv-publish'
       env:
         APP_TOKEN: ${{ inputs.token }}
+        APP_USERNAME: ${{ inputs.username }}
+        APP_PASSWORD: ${{ inputs.password }}
+        APP_PUBLISH_URL: ${{ inputs.publish-url }}
         APP_TRUSTED_PUBLISHING: ${{ inputs.trusted-publishing }}
+        APP_NATIVE_TLS: ${{ inputs.native-tls }}
       run: uv run --with=dycw-uv-publish --reinstall uv-publish
       shell: bash
