@@ -11,10 +11,10 @@
     "typed-settings[attrs, click] >=25.3.0, <25.4",
   ]
   description = "Build and publish Python packages"
-  name = "dycw-uv-publish"
+  name = "uv_publish"
   readme = "README.md"
   requires-python = ">= 3.13"
-  version = "0.4.6"
+  version = "0.4.7"
 
   [project.scripts]
     uv-publish = "uv_publish.cli:_main"

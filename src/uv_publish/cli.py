@@ -3,7 +3,7 @@ from __future__ import annotations
 from click import command
 from rich.pretty import pretty_repr
 from typed_settings import click_options
-from utilities.click import CONTEXT_SETTINGS_HELP_OPTION_NAMES
+from utilities.click import CONTEXT_SETTINGS
 from utilities.logging import basic_config
 
 from uv_publish import __version__
@@ -12,7 +12,7 @@ from uv_publish.logging import LOGGER
 from uv_publish.settings import Settings
 
 
-@command(**CONTEXT_SETTINGS_HELP_OPTION_NAMES)
+@command(**CONTEXT_SETTINGS)
 @click_options(Settings, "app", show_envvars_in_help=True)
 def _main(settings: Settings, /) -> None:
     basic_config(obj=LOGGER)
