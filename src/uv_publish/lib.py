@@ -23,7 +23,7 @@ def uv_publish(
 ) -> None:
     LOGGER.info(
         """\
-Running %s with settings:
+Running version %s with settings:
  - username           = %s
  - password           = %s
  - publish_url        = %s
