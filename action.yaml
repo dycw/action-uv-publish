@@ -24,6 +24,9 @@ inputs:
   native-tls:
     description: Whether to load TLS certificates from the platform's native certificate store
     default: false
+  dry-run:
+    description: Dry run the CLI
+    default: false
 
 runs:
   using: composite
@@ -50,5 +53,6 @@ runs:
         PUBLISH_URL: ${{ inputs.publish-url }}
         TRUSTED_PUBLISHING: ${{ inputs.trusted-publishing }}
         NATIVE_TLS: ${{ inputs.native-tls }}
+        DRY_RUN: ${{ inputs.dry-run }}
       run: uv tool run --from dycw-uv-publish --isolated uv-publish
       shell: bash

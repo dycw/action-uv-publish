@@ -11,6 +11,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           trusted-publishing: true
+      - name: Build and publish Python packages
+        uses: dycw/action-uv-publish@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          trusted-publishing: true
   tag:
     runs-on: ubuntu-latest
     steps:
