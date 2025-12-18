@@ -14,7 +14,7 @@
   name = "dycw-uv-publish"
   readme = "README.md"
   requires-python = ">= 3.13"
-  version = "0.3.7"
+  version = "0.3.8"
 
   [project.scripts]
     uv-publish = "uv_publish.cli:_main"
