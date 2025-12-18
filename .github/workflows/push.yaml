@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Python package and upload distribution
+        uses: dycw/action-uv-publish@0.4.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          trusted-publishing: true
+      - name: Build Python package and upload distribution
         uses: dycw/action-uv-publish@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
