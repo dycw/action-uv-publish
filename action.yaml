@@ -45,7 +45,6 @@ runs:
     - name: Run 'action publish'
       env:
         TOKEN: ${{ inputs.token }}
-        DRY_RUN: ${{ inputs.dry-run }}
         USERNAME: ${{ inputs.username }}
         PASSWORD: ${{ inputs.password }}
         PUBLISH_URL: ${{ inputs.publish-url }}
