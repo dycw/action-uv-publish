@@ -46,10 +46,11 @@ runs:
       shell: bash
 
     - name: Run 'action publish'
-      run: uv tool run --from dycw-actions --isolated action publish \
-        --username ${{inputs.username}} \
-        --password ${{inputs.password}} \
-        --publish-url=${{inputs.publish-url}} \
-        --trusted-publishing=${{inputs.trusted-publishing}} \
-        --native-tls=${{inputs.native-tls}}
+      env:
+        USERNAME: ${{inputs.username}}
+        PASSWORD: ${{inputs.password}}
+        PUBLISH_URL: ${{inputs.publish-url}}
+        TRUSTED_PUBLISHING: ${{inputs.trusted-publishing}}
+        NATIVE_TLS: ${{inputs.native-tls}}
+      run: uv tool run --from dycw-actions --isolated action publish
       shell: bash
