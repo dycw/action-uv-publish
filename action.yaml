@@ -1,4 +1,4 @@
-name: uv-publish
+name: publish-package
 description: Build and publish the package
 
 branding:
@@ -6,11 +6,8 @@ branding:
   color: gray-dark
 
 inputs:
-  token-checkout:
-    description: Personal access token (PAT) used to fetch the repository
-    default: ${{github.token}}
-  token-uv:
-    description: Personal access token (PAT) used to download uv
+  token:
+    description: Personal access token (PAT)
     default: ${{github.token}}
   username:
     username: The username of the upload
@@ -34,12 +31,12 @@ runs:
     - name: Check out repo
       uses: actions/checkout@v6
       with:
-        token: ${{inputs.token-checkout}}
+        token: ${{inputs.token}}
 
     - name: Install 'uv'
       uses: astral-sh/setup-uv@v7
       with:
-        github-token: ${{inputs.token-uv}}
+        github-token: ${{inputs.token}}
 
     - name: Install 'dycw-actions'
       run: uv tool install --reinstall dycw-actions
