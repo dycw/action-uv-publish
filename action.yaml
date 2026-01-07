@@ -1,5 +1,5 @@
 name: uv-publish
-description: Build and publish package
+description: Build and publish the package
 
 branding:
   icon: activity
@@ -45,12 +45,12 @@ runs:
       run: uv tool install --reinstall dycw-actions
       shell: bash
 
-    - name: Run 'action publish'
+    - name: Run 'action publish-package'
       env:
         USERNAME: ${{inputs.username}}
         PASSWORD: ${{inputs.password}}
         PUBLISH_URL: ${{inputs.publish-url}}
         TRUSTED_PUBLISHING: ${{inputs.trusted-publishing}}
         NATIVE_TLS: ${{inputs.native-tls}}
-      run: uv tool run --from dycw-actions --isolated action publish
+      run: uv tool run --from dycw-actions --isolated action publish-package
       shell: bash
