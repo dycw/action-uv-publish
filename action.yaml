@@ -48,5 +48,5 @@ runs:
         PUBLISH_URL: ${{inputs.publish-url}}
         TRUSTED_PUBLISHING: ${{inputs.trusted-publishing}}
         NATIVE_TLS: ${{inputs.native-tls}}
-      run: uv tool run --from dycw-actions[cli]@latest --isolated --resolution highest --prerelease disallow cli publish-package
+      run: uv tool run --from dycw-actions[cli]@latest --isolated --resolution highest --prerelease disallow --managed-python cli publish-package
       shell: bash
