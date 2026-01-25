@@ -23,10 +23,10 @@ inputs:
     default:
   trusted-publishing:
     description: Configure trusted publishing
-    default:
+    default: false
   native-tls:
     description: Whether to load TLS certificates from the platform's native certificate store
-    default:
+    default: false
 
 runs:
   using: composite
