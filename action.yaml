@@ -46,15 +46,15 @@ runs:
         set -euo pipefail
         args=(uv tool run --from dycw-actions[cli]@latest --isolated --resolution highest --prerelease disallow --managed-python cli publish-package)
         username="${{inputs.username}}"
-        if [[ "${username,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
+        if [[ -n "${username}" ]]; then
           args+=(--username "${username}")
         fi
         password="${{inputs.password}}"
-        if [[ "${password,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
+        if [[ -n "${password}" ]]; then
           args+=(--password "${password}")
         fi
         publish_url="${{inputs.publish-url}}"
-        if [[ "${publish_url,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
+        if [[ -n "${publish_url}" ]]; then
           args+=(--publish-url "${publish_url}")
         fi
         trusted_publishing="${{inputs.trusted-publishing}}"
