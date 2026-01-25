@@ -45,19 +45,24 @@ runs:
       run: |
         set -euo pipefail
         args=(uv tool run --from dycw-actions[cli]@latest --isolated --resolution highest --prerelease disallow --managed-python cli publish-package)
-        if [ -n "${{inputs.username}}" ]; then
-          args+=(--username "${{inputs.username}}")
+        username="${{inputs.username}}"
+        if [[ "${username,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
+          args+=(--username "${username}")
         fi
-        if [ -n "${{inputs.password}}" ]; then
-          args+=(--password "${{inputs.password}}")
+        password="${{inputs.password}}"
+        if [[ "${password,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
+          args+=(--password "${password}")
         fi
-        if [ -n "${{inputs.publish-url}}" ]; then
-          args+=(--publish-url "${{inputs.publish-url}}")
+        publish_url="${{inputs.publish-url}}"
+        if [[ "${publish_url,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
+          args+=(--publish-url "${publish_url}")
         fi
-        if [ -n "${{inputs.trusted-publishing}}" ]; then
+        trusted_publishing="${{inputs.trusted-publishing}}"
+        if [[ "${trusted_publishing,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
           args+=(--trusted-publishing)
         fi
-        if [ -n "${{inputs.native-tls}}" ]; then
+        native_tls="${{inputs.native-tls}}"
+        if [[ "${native_tls,,}" =~ ^(true|1|yes|on|t|y)$ ]]; then
           args+=(--native-tls)
         fi
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] Running:"
